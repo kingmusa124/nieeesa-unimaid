@@ -55,58 +55,75 @@ a {
     color: inherit;
 }
 
-/* --- NAVIGATION BAR --- */
+/* =========================================
+   2. LAPTOP / DESKTOP NAVIGATION BAR
+   ========================================= */
 .navbar-wrapper {
-    padding: 20px 20px 0 20px;
-    max-width: 1250px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 12px 30px;
-    background-color: var(--bg-card);
-    border: 1px solid var(--border-color);
+    justify-content: space-between;
+    gap: 20px; /* Forces breathing room between Logo, Links, and Button */
+    background: #ffffff;
+    padding: 12px 24px;
     border-radius: 50px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
 }
 
 .nav-brand {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
+    color: #002147;
     font-weight: 800;
-    font-size: 1.15rem;
-    color: var(--navy);
-}
-
-.nav-brand img {
-    height: 38px;
-    width: 38px;
-    border-radius: 50%;
-    object-fit: cover;
-    background: #E5E7EB;
+    font-size: 1.1rem;
+    white-space: nowrap; /* Prevents logo text from wrapping or squishing */
 }
 
 .nav-links {
     display: flex;
-    gap: 28px;
-    font-weight: 600;
-    font-size: 0.95rem;
+    align-items: center;
+    gap: 24px;
+    margin: 0 auto; /* Centers links neatly on laptop */
 }
 
 .nav-links a {
-    color: var(--text-main);
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 600;
+    font-size: 0.95rem;
     transition: color 0.2s ease;
+    white-space: nowrap;
 }
 
-.nav-links a:hover, .nav-links a.active {
-    color: var(--navy);
-    border-bottom: 2px solid var(--navy);
+.nav-links a:hover,
+.nav-links a.active {
+    color: #002147;
+    font-weight: 700;
 }
 
+/* Hide mobile-only portal link on laptop */
+.mobile-portal-link {
+    display: none !important;
+}
+/* Ensure the desktop button fits inside the pill container */
+.desktop-portal-btn {
+    white-space: nowrap;
+    padding: 10px 20px !important;
+    border-radius: 25px !important;
+    flex-shrink: 0; /* Prevents button from getting crushed */
+}
 .btn-primary {
     background-color: var(--navy);
     color: #FFFFFF;
