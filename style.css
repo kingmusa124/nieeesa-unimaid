@@ -1,7 +1,30 @@
 /* ==========================================
    NIEEESA UNIMAID - MASTER STYLESHEET
    ========================================== */
+/* =========================================
+   GLOBAL VIEWPORT & OVERFLOW LOCK
+   ========================================= */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important; /* Stops horizontal wobbling and side-scrolling */
+    position: relative;
+}
 
+/* Ensure the page ends exactly where the footer ends */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer,
+footer {
+    margin-top: auto; /* Automatically pushes footer to the bottom of short pages */
+    margin-bottom: 0 !important; /* Prevents stray white space below copyright text */
+}
 * {
     margin: 0;
     padding: 0;
@@ -543,14 +566,43 @@ a {
         display: none !important;
     }
 
-    /* Show the Student Portal link inside the mobile dropdown */
+    /* Show the Student Portal button neatly centered inside the dropdown */
     .nav-links.active .mobile-portal-link {
         display: block !important;
+        width: calc(100% - 40px) !important; /* Subtracts 40px so it fits inside the box */
+        margin: 15px auto 10px auto !important; /* Centers it with 20px breathing room on each side */
         background-color: #002147 !important;
         color: #ffffff !important;
         font-weight: 700;
-        margin: 10px 15px;
-        border-radius: 6px;
+        border-radius: 8px !important;
+        padding: 12px 20px !important;
+        text-align: center !important;
+        border-bottom: none !important; /* Removes the underline separator */
+    }
+    /* =========================================
+       MOBILE SCROLL & WHITE SPACE CLAMP
+       ========================================= */
+    html, body {
+        height: auto !important; /* Prevents mobile address bar height bugs */
+        min-height: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    /* Prevent any section from stretching the page boundaries */
+    .section,
+    .section-bg,
+    .navbar-wrapper,
+    main,
+    div {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Keep footer compact on mobile with zero bottom gap */
+    .footer,
+    footer {
+        padding-bottom: 25px !important;
+        margin-bottom: 0 !important;
     }
 }
 /* =========================================
