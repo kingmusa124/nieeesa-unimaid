@@ -468,6 +468,20 @@ a {
         flex-wrap: wrap;
         justify-content: center;
     }
+   
+      /* =========================================
+       FEATURED EVENT MOBILE STACKING
+       ========================================= */
+    .featured-event-card {
+        grid-template-columns: 1fr !important; /* Forces 1 single column instead of 2 */
+        gap: 25px !important;
+        padding: 24px !important;
+    }
+
+    .featured-event-img {
+        height: 240px !important;
+        width: 100% !important;
+    }
 }
 
 /* =========================================
