@@ -466,3 +466,34 @@ a {
         justify-content: center;
     }
 }
+/* =========================================
+   MOBILE HAMBURGER MENU DROPDOWN
+   ========================================= */
+@media (max-width: 768px) {
+    .hamburger {
+        cursor: pointer;
+        user-select: none;
+    }
+
+    /* When JavaScript adds the '.active' class, show the menu */
+    .nav-links.active {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 70px; /* Sits right below the navbar */
+        left: 0;
+        width: 100%;
+        background: var(--white, #ffffff);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        padding: 15px 0;
+        z-index: 9999;
+    }
+
+    .nav-links.active a {
+        display: block;
+        padding: 12px 24px;
+        width: 100%;
+        text-align: center;
+        border-bottom: 1px solid var(--border-color, #f0f0f0);
+    }
+}
