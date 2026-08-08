@@ -469,31 +469,58 @@ a {
 /* =========================================
    MOBILE HAMBURGER MENU DROPDOWN
    ========================================= */
+/* =========================================
+   BULLETPROOF MOBILE HAMBURGER MENU
+   ========================================= */
 @media (max-width: 768px) {
+    /* Ensure the navbar parent allows dropdowns */
+    .navbar-wrapper,
+    .navbar {
+        position: relative !important;
+        overflow: visible !important;
+    }
+
     .hamburger {
         cursor: pointer;
         user-select: none;
+        font-size: 1.8rem;
+        z-index: 10001; /* Stays above the open menu */
     }
 
-    /* When JavaScript adds the '.active' class, show the menu */
+    /* Hide menu by default on mobile */
+    .nav-links {
+        display: none;
+    }
+
+    /* When active, show solid white dropdown menu */
     .nav-links.active {
         display: flex !important;
         flex-direction: column;
         position: absolute;
-        top: 70px; /* Sits right below the navbar */
+        top: 100%; /* Drops exactly below the bottom edge of the navbar */
         left: 0;
         width: 100%;
-        background: var(--white, #ffffff);
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        padding: 15px 0;
-        z-index: 9999;
+        background-color: #ffffff !important;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2) !important;
+        padding: 10px 0;
+        z-index: 10000 !important; /* Forces it above all hero banners and photos */
     }
 
     .nav-links.active a {
         display: block;
-        padding: 12px 24px;
+        padding: 14px 24px;
         width: 100%;
         text-align: center;
-        border-bottom: 1px solid var(--border-color, #f0f0f0);
+        color: #002147 !important; /* Forces dark navy text so it is always visible */
+        font-weight: 600;
+        text-decoration: none;
+        border-bottom: 1px solid #f0f0f0;
+        box-sizing: border-box;
+    }
+
+    .nav-links.active a:hover,
+    .nav-links.active a.active {
+        background-color: #f4f7f9;
+        color: #0056b3 !important;
     }
 }
