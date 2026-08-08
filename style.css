@@ -553,3 +553,43 @@ a {
         border-radius: 6px;
     }
 }
+/* =========================================
+   FEATURED EVENT CARD (DESKTOP & MOBILE)
+   ========================================= */
+/* Desktop Layout: 2 equal columns side-by-side */
+.featured-event-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 40px;
+}
+
+.featured-event-img {
+    height: 300px;
+    background: #D1D5DB;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.featured-event-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Mobile Layout: Stack vertically (Text on top, Image full-width below) */
+@media (max-width: 768px) {
+    .featured-event-card {
+        grid-template-columns: 1fr !important;
+        gap: 25px !important;
+        padding: 24px !important;
+    }
+
+    .featured-event-img {
+        height: 240px !important;
+        width: 100% !important;
+    }
+}
