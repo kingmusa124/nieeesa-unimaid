@@ -406,7 +406,10 @@ a {
     color: var(--text-muted);
     text-align: center;
 }
-
+/* Hide the mobile-only portal link on desktop screens */
+.mobile-portal-link {
+    display: none;
+}
 /* ==========================================
    MOBILE RESPONSIVENESS (< 768px)
    ========================================== */
@@ -466,9 +469,7 @@ a {
         justify-content: center;
     }
 }
-/* =========================================
-   MOBILE HAMBURGER MENU DROPDOWN
-   ========================================= */
+
 /* =========================================
    BULLETPROOF MOBILE HAMBURGER MENU
    ========================================= */
@@ -522,5 +523,19 @@ a {
     .nav-links.active a.active {
         background-color: #f4f7f9;
         color: #0056b3 !important;
+    }
+    /* Hide the desktop top-right button on small phone screens */
+    .desktop-portal-btn {
+        display: none !important;
+    }
+
+    /* Show the Student Portal link inside the mobile dropdown */
+    .nav-links.active .mobile-portal-link {
+        display: block !important;
+        background-color: #002147 !important;
+        color: #ffffff !important;
+        font-weight: 700;
+        margin: 10px 15px;
+        border-radius: 6px;
     }
 }
