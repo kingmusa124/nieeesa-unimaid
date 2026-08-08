@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | NIEEESA UNIMAID</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Dashboard Specific Styles */
+        body {
+            background-color: #f4f7f9;
+        }
+        .dashboard-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+        .dash-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            margin-bottom: 25px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: #ffebee;
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+        .status-badge.paid {
+            background: #e8f5e9;
+            color: #2e7d32;
+        }
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .video-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+            text-align: center;
+        }
+        .video-thumbnail {
+            height: 120px;
+            background: #cbd5e1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 2rem;
+        }
+        .video-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--navy);
+            padding: 10px;
+        }
+        /* Mobile Layout */
+        @media (max-width: 768px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dashboard Navigation Bar (Logged In State) -->
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+            <a href="index.html" class="nav-brand">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <img src="images/unimaid_logo.jpg" alt="UNIMAID Crest" style="height: 38px; width: 38px; object-fit: contain;">
+                    <img src="images/nieesa_logo.jpg" alt="NIEEE Logo" style="height: 38px; width: 38px; object-fit: contain;">
+                </div>
+                <span>NIEEESA PORTAL</span>
+            </a>
+            <div class="nav-links">
+                <a href="#" class="active">Dashboard</a>
+                <a href="#">My Profile</a>
+                <a href="#">Support</a>
+                <a href="index.html" class="mobile-portal-link" style="background-color: #d32f2f !important;">Log Out</a>
+            </div>
+            <!-- Logout Button for Desktop -->
+            <a href="index.html" class="btn-primary desktop-portal-btn" style="background-color: #d32f2f;">Log Out</a>
+            <div class="hamburger">☰</div>
+        </nav>
+    </div>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+        
+        <!-- Left Column: Student Profile & Payment -->
+        <div>
+            <!-- Profile Card -->
+            <div class="dash-card">
+                <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 20px;">
+                    <div style="height: 60px; width: 60px; border-radius: 50%; background: var(--navy); color: white; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; font-weight: bold;">
+                        MG
+                    </div>
+                    <div>
+                        <h3 style="color: var(--navy); margin: 0; font-size: 1.2rem;">Musa Gabriel Gadzama</h3>
+                        <p style="margin: 2px 0 0 0; font-size: 0.85rem; color: #64748b;">ID: 21/04/05/098</p>
+                    </div>
+                </div>
+                <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 15px 0;">
+                <p style="font-size: 0.9rem; margin-bottom: 8px;"><strong>Department:</strong> Electrical & Electronics</p>
+                <p style="font-size: 0.9rem; margin-bottom: 8px;"><strong>Level:</strong> 500 Level</p>
+            </div>
+
+            <!-- Dues Payment Card (The Money Maker) -->
+            <div class="dash-card" style="border: 2px solid #002147;">
+                <span class="status-badge">PAYMENT PENDING</span>
+                <h3 style="color: var(--navy); margin-bottom: 10px;">2026/2027 Session Dues</h3>
+                <p style="font-size: 0.85rem; color: #4a5568; margin-bottom: 20px;">
+                    You must pay your session dues to unlock course materials, tutorials, and past questions.
+                </p>
+                <div style="font-size: 1.5rem; font-weight: 800; color: var(--navy); margin-bottom: 15px;">
+                    ₦5,000.00
+                </div>
+                <!-- Fake Paystack Button -->
+                <a href="#" class="btn-primary" style="width: 100%; justify-content: center; background-color: #0ba4db;" onclick="alert('Demo Mode: In the real version, this will open the Paystack checkout modal.'); return false;">
+                    🔒 Pay with Paystack
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Column: Locked Curriculum & Resources -->
+        <div>
+            <div class="dash-card">
+                <h2 style="color: var(--navy); font-size: 1.4rem; margin-bottom: 5px;">Curated E-Learning</h2>
+                <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 20px;">High-quality video tutorials aligned with the UNIMAID syllabus.</p>
+                
+                <!-- Mockup Grid of YouTube Embeds -->
+                <div class="course-grid">
+                    <div class="video-card">
+                        <div class="video-thumbnail">▶</div>
+                        <div class="video-title">EEE 501: Control Systems II</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail">▶</div>
+                        <div class="video-title">EEE 503: Power Systems</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-thumbnail" style="background: #e2e8f0; color: #94a3b8;">🔒</div>
+                        <div class="video-title" style="color: #94a3b8;">Pay Dues to Unlock</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dash-card">
+                <h2 style="color: var(--navy); font-size: 1.4rem; margin-bottom: 5px;">Past Questions & Materials</h2>
+                <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 20px;">Downloadable PDFs from the NIEEESA Drive.</p>
+                
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <span style="font-size: 0.9rem; font-weight: 600; color: var(--navy);">2025 EEE 401 Exam.pdf</span>
+                    <button class="btn-primary" style="padding: 6px 12px; font-size: 0.8rem; background: #64748b; border: none; opacity: 0.5; cursor: not-allowed;">Locked</button>
+                </div>
+                <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 15px; display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 0.9rem; font-weight: 600; color: var(--navy);">MATLAB Assignment Guide.pdf</span>
+                    <button class="btn-primary" style="padding: 6px 12px; font-size: 0.8rem; background: #64748b; border: none; opacity: 0.5; cursor: not-allowed;">Locked</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Mobile Menu Script -->
+    <script src="script.js"></script>
+</body>
+</html>
